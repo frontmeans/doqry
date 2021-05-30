@@ -9,6 +9,20 @@ import { DoqrySelector } from './selector';
 import { DoqrySubPicker } from './sub-picker';
 import { DoqrySubSelector } from './sub-selector';
 
+const DoqryPicker__symbol = (/*#__PURE__*/ Symbol('DoqryPicker'));
+
+type DoqrySelector$Normalizable = DoqrySelector & {
+  readonly [DoqryPicker__symbol]?: DoqryPicker;
+};
+
+class DoqryPicker$Mutable extends Array<DoqryPicker.Part | DoqryCombinator> {
+
+  get [DoqryPicker__symbol](): this {
+    return this;
+  }
+
+}
+
 export function DoqrySelector$normalize(selector: DoqryPurePicker.Part): [DoqryPurePicker.Part];
 
 export function DoqrySelector$normalize(selector: DoqryPicker.Part): [DoqryPicker.Part];
@@ -17,12 +31,19 @@ export function DoqrySelector$normalize(selector: DoqryPureSelector): DoqryPureP
 
 export function DoqrySelector$normalize(selector: DoqrySelector): DoqryPicker;
 
-export function DoqrySelector$normalize(selector: DoqrySelector): DoqryPicker {
+export function DoqrySelector$normalize(selector: DoqrySelector$Normalizable): DoqryPicker {
+
+  const normalized = selector[DoqryPicker__symbol];
+
+  if (normalized) {
+    return normalized;
+  }
   if (!isArrayOfElements(selector)) {
-    return [DoqrySelector$normalizeKey(selector)];
+    return new DoqryPicker$Mutable(DoqrySelector$normalizeKey(selector));
   }
 
-  const picker: DoqryPicker.Mutable = [];
+  const picker = new DoqryPicker$Mutable();
+
   let combinator: DoqryCombinator | undefined;
 
   for (const item of selector) {

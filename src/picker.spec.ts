@@ -220,4 +220,16 @@ describe('doqryPicker', () => {
       ],
     }]);
   });
+  it('returns the picker itself', () => {
+
+    const picker = doqryPicker(doqryPicker(['abc', '>', { e: 'def' }]));
+
+    expect(doqryPicker(picker)).toBe(picker);
+  });
+  it('returns the simple picker itself', () => {
+
+    const picker = doqryPicker('span');
+
+    expect(doqryPicker(picker)).toBe(picker);
+  });
 });

@@ -74,7 +74,7 @@ export function doqryPicker(part: DoqryPicker.Part): [DoqryPicker.Part];
  *
  * @param selector - Pure CSS selector to normalize.
  *
- * @returns Pure CSS picker.
+ * @returns Pure CSS picker, or the `selector` itself if it normalized already.
  */
 export function doqryPicker(selector: DoqryPureSelector): DoqryPurePicker;
 
@@ -83,7 +83,7 @@ export function doqryPicker(selector: DoqryPureSelector): DoqryPurePicker;
  *
  * @param selector - CSS selector to normalize.
  *
- * @returns CSS picker.
+ * @returns Normalized CSS picker, or the `selector` itself if it normalized already.
  */
 export function doqryPicker(selector: DoqrySelector): DoqryPicker;
 
