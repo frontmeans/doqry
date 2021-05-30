@@ -40,19 +40,3 @@ export function doqryText(selector: DoqrySelector | DoqryPureSelector, format?: 
   return DoqryPicker$format(doqryPicker(selector), format);
 }
 
-const displayTextOpts: DoqryFormat = {
-  qualify(qualifier: string) {
-    return `@${qualifier}`;
-  },
-};
-
-/**
- * Converts structured CSS selector to its display textual representation including qualifiers.
- *
- * @param selector - Target CSS selector.
- *
- * @returns Selector string containing qualifiers.
- */
-export function doqryDisplayText(selector: DoqrySelector): string {
-  return DoqryPicker$format(doqryPicker(selector), displayTextOpts);
-}

@@ -1,6 +1,6 @@
 import { DEFAULT__NS, NamespaceDef } from '@frontmeans/namespace-aliaser';
 import { beforeEach, describe, expect, it } from '@jest/globals';
-import { doqryDisplayText, doqryText } from './text';
+import { doqryText } from './text';
 
 describe('doqryText', () => {
 
@@ -94,11 +94,5 @@ describe('doqryText', () => {
   });
   it('formats qualifiers by second argument', () => {
     expect(doqryText({ e: 'span', $: ['foo', 'bar'] }, { qualify(q) { return `@${q}`; } })).toBe('span@bar@foo');
-  });
-});
-
-describe('doqryDisplayText', () => {
-  it('formats qualifiers', () => {
-    expect(doqryDisplayText([{ e: 'span', $: ['foo:bar=baz'] }])).toBe('span@foo@foo:bar@foo:bar=baz');
   });
 });
