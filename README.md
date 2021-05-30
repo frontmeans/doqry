@@ -82,3 +82,15 @@ The presence of `q1:q2:q3=v` qualifier means the same as presence of `q1`, `q1:q
 qualifiers.
 
 [at-rule]: https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
+
+
+API
+---
+
+The following operations over structure CSS selectors supported:
+
+- `doqryDisplayText(selector)` - Converts `selector` to textual representation including qualifiers.
+- `doqryEqual(first, second)` - Checks whether the `first` selector equals to the `second` one.
+- `doqryPicker(selector)` - Normalizes `selector` representation and converts it to CSS picker.
+- `doqryText(selector, format?)` - Converts `selector` to textual representation in the given `format`.
+  By default, converts to representation that can be used in CSS (i.e. without qualifiers).
