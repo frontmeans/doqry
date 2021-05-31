@@ -52,9 +52,8 @@
     "clean": "run-z +z --then shx rm -rf 'index.d.ts?(.map)' dist target",
     "doc": "run-z +z --then typedoc",
     "doc:publish": "run-z doc --then gh-pages --dist target/typedoc --dotfiles",
-    "lint": "run-z lint:md,lint:ts",
+    "lint": "run-z + lint:md --and eslint .",
     "lint:md": "run-z +z --then remark .",
-    "lint:ts": "run-z +z --then eslint . --ext .js,.ts",
     "test": "run-z +z env:NODE_OPTIONS='--experimental-vm-modules --no-warnings' --then jest",
     "z": "run-z +cmd:rollup,+cmd:typedoc,+cmd:eslint,+cmd:remark,+cmd:jest"
   },

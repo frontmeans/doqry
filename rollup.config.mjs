@@ -6,7 +6,7 @@ import typescript from 'typescript';
 
 export default {
   input: {
-    'doqry': './src/index.ts',
+    doqry: './src/index.ts',
   },
   plugins: [
     ts({
@@ -29,7 +29,7 @@ export default {
         compilerOptions: {
           declarationMap: true,
         },
-        internal: '**/*.impl'
+        internal: '**/*.impl',
       }),
     ],
   },
