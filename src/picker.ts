@@ -1,5 +1,5 @@
 import { DoqryCombinator } from './combinator';
-import { DoqrySelector$normalize } from './picker.impl';
+import { DoqrySelector$normalize, DoqrySelector$Part$normalize } from './picker.impl';
 import { DoqryPurePicker } from './pure-picker';
 import { DoqryPureSelector } from './pure-selector';
 import { DoqrySelector } from './selector';
@@ -83,10 +83,21 @@ export function doqryPicker(selector: DoqryPureSelector): DoqryPurePicker;
  *
  * @param selector - CSS selector to normalize.
  *
- * @returns Normalized CSS picker, or the `selector` itself if it normalized already.
+ * @returns Normalized CSS picker, or the `selector` itself if normalized already.
  */
 export function doqryPicker(selector: DoqrySelector): DoqryPicker;
 
 export function doqryPicker(selector: DoqrySelector): DoqryPicker {
   return DoqrySelector$normalize(selector);
+}
+
+/**
+ * Normalizes arbitrary part of structured CSS selector.
+ *
+ * @param part - CSS selector party to normalize.
+ *
+ * @returns Normalized CSS picker part.
+ */
+export function doqryPickerPart(part: DoqrySelector.Part): DoqryPicker.Part {
+  return DoqrySelector$Part$normalize(part);
 }

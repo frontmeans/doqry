@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module Module @frontmeans/doqry
+ */
 export * from './attribute';
 export * from './combinator';
 export * from './display-text';

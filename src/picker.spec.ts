@@ -1,6 +1,6 @@
 import { NamespaceDef } from '@frontmeans/namespace-aliaser';
 import { beforeEach, describe, expect, it } from '@jest/globals';
-import { doqryPicker } from './picker';
+import { doqryPicker, doqryPickerPart } from './picker';
 
 describe('doqryPicker', () => {
 
@@ -231,5 +231,18 @@ describe('doqryPicker', () => {
     const picker = doqryPicker('span');
 
     expect(doqryPicker(picker)).toBe(picker);
+  });
+});
+
+describe('doqryPickerPart', () => {
+  it('normalizes selector part', () => {
+    expect(doqryPickerPart({
+      e: 'li', u: [':', 'nth-child', '2'],
+    })).toEqual({
+      e: 'li',
+      u: [
+        [':', 'nth-child', [{ s: '2' }]],
+      ],
+    });
   });
 });
