@@ -3,6 +3,8 @@ Document Query Notation
 
 [![NPM][npm-image]][npm-url]
 [![Build Status][build-status-img]][build-status-link]
+[![Codacy Badge][quality-img]][quality-link]
+[![Code Coverage][coverage-img]][coverage-link]
 [![GitHub Project][github-image]][github-url]
 [![API Documentation][api-docs-image]][api-docs-url]
 
@@ -11,6 +13,10 @@ Document Query Notation
 [npm-url]: https://www.npmjs.com/package/@frontmeans/doqry
 [build-status-img]: https://github.com/frontmeans/doqry/workflows/Build/badge.svg
 [build-status-link]: https://github.com/frontmeans/doqry/actions?query=workflow%3ABuild
+[quality-img]: https://app.codacy.com/project/badge/Grade/e5162aa2af494839bdefea342cf04eff
+[quality-link]: https://www.codacy.com/gh/frontmeans/doqry/dashboard?utm_source=github.com&utm_medium=referral&utm_content=frontmeans/doqry&utm_campaign=Badge_Grade
+[coverage-img]: https://app.codacy.com/project/badge/Coverage/e5162aa2af494839bdefea342cf04eff
+[coverage-link]: https://www.codacy.com/gh/frontmeans/doqry/dashboard?utm_source=github.com&utm_medium=referral&utm_content=frontmeans/doqry&utm_campaign=Badge_Coverage
 [github-image]: https://img.shields.io/static/v1?logo=github&label=GitHub&message=project&color=informational
 [github-url]: https://github.com/frontmeans/doqry
 [api-docs-image]: https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational
