@@ -23,6 +23,7 @@ Structured CSS Selectors
 Doqry represents CSS selectors as data structures rather than trying to parse selectors text.
 
 Structured CSS selector is one of:
+
 - raw CSS selector text,
 - CSS selector part, or
 - an array consisting of strings, parts, and their combinators.
@@ -33,7 +34,8 @@ CSS combinator is one of: `>`, `+`, or `~`.
 
 CSS selector part is a structure representing selectors like
 `element-name#id.class1.classN[attr1][attr2]:pseudo-class::pseudo-element`.
-Each selector part is represented by corresponding property.:
+Each selector part is represented by corresponding property:
+
 - Element selector:
   `{ e: 'element-name' }` for `element-name`.
 - Element selector in XML namespace:
