@@ -1,6 +1,8 @@
 Document Query Notation
 =======================
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1e31b02c62374c128144da15a0da1ce6)](https://app.codacy.com/gh/frontmeans/doqry?utm_source=github.com&utm_medium=referral&utm_content=frontmeans/doqry&utm_campaign=Badge_Grade_Settings)
+
 [![NPM][npm-image]][npm-url]
 [![Build Status][build-status-img]][build-status-link]
 [![Codacy Badge][quality-img]][quality-link]
