@@ -3,8 +3,8 @@ Document Query Notation
 
 [![NPM][npm-image]][npm-url]
 [![Build Status][build-status-img]][build-status-link]
-[![Codacy Badge][quality-img]][quality-link]
-[![Code Coverage][coverage-img]][coverage-link]
+[![Code Quality][quality-img]][quality-link]
+[![Coverage][coverage-img]][coverage-link]
 [![GitHub Project][github-image]][github-url]
 [![API Documentation][api-docs-image]][api-docs-url]
 
