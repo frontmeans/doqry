@@ -51,4 +51,3 @@ export namespace DoqrySubSelector {
   export type Parameter = readonly (string | DoqryPureSelector.Part | DoqryCombinator)[];
 
 }
-

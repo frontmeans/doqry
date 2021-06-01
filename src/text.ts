@@ -39,4 +39,3 @@ export interface DoqryFormat {
 export function doqryText(selector: DoqrySelector | DoqryPureSelector, format?: DoqryFormat): string {
   return DoqryPicker$format(doqryPicker(selector), format);
 }
-
