@@ -19,6 +19,12 @@
   "main": "./dist/doqry.js",
   "types": "./index.d.ts",
   "exports": "./dist/doqry.js",
+  "dependencies": {
+    "@frontmeans/httongue": "^2.3.0",
+    "@frontmeans/namespace-aliaser": "^2.6.0",
+    "@proc7ts/primitives": "^3.0.2",
+    "@proc7ts/push-iterator": "^2.6.0"
+  },
   "devDependencies": {
     "@jest/globals": "^27.0.6",
     "@rollup/plugin-node-resolve": "^13.0.0",
@@ -55,11 +61,5 @@
     "lint:md": "run-z +z --then remark .",
     "test": "run-z +z env:NODE_OPTIONS='--experimental-vm-modules --no-warnings' --then jest",
     "z": "run-z +cmd:rollup,+cmd:typedoc,+cmd:eslint,+cmd:remark,+cmd:jest"
-  },
-  "dependencies": {
-    "@frontmeans/httongue": "^2.3.0",
-    "@frontmeans/namespace-aliaser": "^2.5.0",
-    "@proc7ts/primitives": "^3.0.2",
-    "@proc7ts/push-iterator": "^2.6.0"
   }
 }
