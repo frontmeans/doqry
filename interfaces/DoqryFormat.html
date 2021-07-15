@@ -55,7 +55,7 @@
 					<a href="../modules.html">Namespace Aliaser</a>
 				</li>
 				<li>
-					<a href="doqryformat.html">DoqryFormat</a>
+					<a href="DoqryFormat.html">DoqryFormat</a>
 				</li>
 			</ul>
 			<h1>Interface DoqryFormat</h1>
@@ -87,8 +87,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="doqryformat.html#nsalias" class="tsd-kind-icon">ns<wbr>Alias</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="doqryformat.html#qualify" class="tsd-kind-icon">qualify</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="DoqryFormat.html#nsAlias" class="tsd-kind-icon">ns<wbr>Alias</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="DoqryFormat.html#qualify" class="tsd-kind-icon">qualify</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,12 +102,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nsalias" class="tsd-anchor"></a>
+					<a name="nsAlias" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ns<wbr>Alias</h3>
 					<div class="tsd-signature tsd-kind-icon">ns<wbr>Alias<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NamespaceAliaser</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/text.ts#L27">text.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/text.ts#L27">text.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -112,48 +117,41 @@
 						<p>New instance will be created if not specified.</p>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="qualify" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> qualify</h3>
-					<div class="tsd-signature tsd-kind-icon">qualify<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>qualifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/text.ts#L20">text.ts:20</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>qualifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">qualify<span class="tsd-signature-symbol">(</span>qualifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/text.ts#L20">text.ts:20</a></li>
 								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<div class="tsd-comment tsd-typography">
-											<div class="lead">
-												<p>Qualifier formatting function. When present, it is called for each qualifier to build its
-												textual representation. When unspecified, the qualifiers won&#39;t be attached to resulting CSS selector text.</p>
-											</div>
-										</div>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>qualifier: <span class="tsd-signature-type">string</span></h5>
-												<div class="tsd-comment tsd-typography">
-													<div class="lead">
-														<p>Qualifier to format.</p>
-													</div>
-												</div>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-										<p>Textual representation of <code>qualifier</code>.</p>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Qualifier formatting function. When present, it is called for each qualifier to build its
+									textual representation. When unspecified, the qualifiers won&#39;t be attached to resulting CSS selector text.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>qualifier: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Qualifier to format.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Textual representation of <code>qualifier</code>.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -170,59 +168,59 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="doqryformat.html" class="tsd-kind-icon">Doqry<wbr>Format</a>
+						<a href="DoqryFormat.html" class="tsd-kind-icon">Doqry<wbr>Format</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="doqryformat.html#nsalias" class="tsd-kind-icon">ns<wbr>Alias</a>
+								<a href="DoqryFormat.html#nsAlias" class="tsd-kind-icon">ns<wbr>Alias</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="doqryformat.html#qualify" class="tsd-kind-icon">qualify</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="DoqryFormat.html#qualify" class="tsd-kind-icon">qualify</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqryattribute" class="tsd-kind-icon">Doqry<wbr>Attribute</a>
+						<a href="../modules.html#DoqryAttribute" class="tsd-kind-icon">Doqry<wbr>Attribute</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqrycombinator" class="tsd-kind-icon">Doqry<wbr>Combinator</a>
+						<a href="../modules.html#DoqryCombinator" class="tsd-kind-icon">Doqry<wbr>Combinator</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqrypicker" class="tsd-kind-icon">Doqry<wbr>Picker</a>
+						<a href="../modules.html#DoqryPicker" class="tsd-kind-icon">Doqry<wbr>Picker</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqrypurepicker" class="tsd-kind-icon">Doqry<wbr>Pure<wbr>Picker</a>
+						<a href="../modules.html#DoqryPurePicker" class="tsd-kind-icon">Doqry<wbr>Pure<wbr>Picker</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqrypureselector" class="tsd-kind-icon">Doqry<wbr>Pure<wbr>Selector</a>
+						<a href="../modules.html#DoqryPureSelector" class="tsd-kind-icon">Doqry<wbr>Pure<wbr>Selector</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqryselector" class="tsd-kind-icon">Doqry<wbr>Selector</a>
+						<a href="../modules.html#DoqrySelector" class="tsd-kind-icon">Doqry<wbr>Selector</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqrysubpicker" class="tsd-kind-icon">Doqry<wbr>Sub<wbr>Picker</a>
+						<a href="../modules.html#DoqrySubPicker" class="tsd-kind-icon">Doqry<wbr>Sub<wbr>Picker</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../modules.html#doqrysubselector" class="tsd-kind-icon">Doqry<wbr>Sub<wbr>Selector</a>
+						<a href="../modules.html#DoqrySubSelector" class="tsd-kind-icon">Doqry<wbr>Sub<wbr>Selector</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../modules.html#doqrydisplaytext" class="tsd-kind-icon">doqry<wbr>Display<wbr>Text</a>
+						<a href="../modules.html#doqryDisplayText" class="tsd-kind-icon">doqry<wbr>Display<wbr>Text</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../modules.html#doqryequal" class="tsd-kind-icon">doqry<wbr>Equal</a>
+						<a href="../modules.html#doqryEqual" class="tsd-kind-icon">doqry<wbr>Equal</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../modules.html#doqrypicker" class="tsd-kind-icon">doqry<wbr>Picker</a>
+						<a href="../modules.html#doqryPicker" class="tsd-kind-icon">doqry<wbr>Picker</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../modules.html#doqrypickerpart" class="tsd-kind-icon">doqry<wbr>Picker<wbr>Part</a>
+						<a href="../modules.html#doqryPickerPart" class="tsd-kind-icon">doqry<wbr>Picker<wbr>Part</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../modules.html#doqrytext" class="tsd-kind-icon">doqry<wbr>Text</a>
+						<a href="../modules.html#doqryText" class="tsd-kind-icon">doqry<wbr>Text</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../modules.html#isdoqrycombinator" class="tsd-kind-icon">is<wbr>Doqry<wbr>Combinator</a>
+						<a href="../modules.html#isDoqryCombinator" class="tsd-kind-icon">is<wbr>Doqry<wbr>Combinator</a>
 					</li>
 				</ul>
 			</nav>
@@ -235,6 +233,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
 	</div>

@@ -55,10 +55,10 @@
 					<a href="../modules.html">Namespace Aliaser</a>
 				</li>
 				<li>
-					<a href="../modules/doqrypicker.html">DoqryPicker</a>
+					<a href="../modules/DoqrySelector.html">DoqrySelector</a>
 				</li>
 				<li>
-					<a href="doqrypicker.part.html">Part</a>
+					<a href="DoqrySelector.Part.html">Part</a>
 				</li>
 			</ul>
 			<h1>Interface Part</h1>
@@ -71,29 +71,19 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A part of the <a href="../modules/doqrypicker.html">structured CSS picker</a>.</p>
+						<p>A part of <a href="../modules/DoqrySelector.html">structured CSS selector</a>}.</p>
 					</div>
-					<p>It is a <a href="doqryselector.part.html">structured CSS selector part</a> that:</p>
-					<ul>
-						<li>does not contain empty properties,</li>
-						<li>does not contain unnecessary <code>*</code> element,</li>
-						<li>does not contain empty class names,</li>
-						<li>does not contain empty class names array,</li>
-						<li>has class names sorted,</li>
-						<li>does not contain empty sub-selectors array,</li>
-						<li>contains normalized sub-pickers.</li>
-						<li>does not contain empty qualifiers,</li>
-						<li>does not contain empty qualifiers array,</li>
-						<li>has qualifiers exposed, e.g. <code>foo:bar=baz</code> is exposed as three qualifiers: <code>foo</code>, <code>foo:bar</code>, and <code>foo:bar=baz</code></li>
-						<li>has qualifiers sorted.</li>
-					</ul>
+					<p>It may represent a selector like <code>element-name#id.class1.classN[attr1][attr2]:pseudo-class::pseudo-element</code> with
+						any of sub-parts omitted. Attributes, pseudo-classes, and pseudo-elements are represented as sub-selectors.
+					A raw CSS selector can also be represented by this structure, but is never parsed.</p>
+					<p>All of the properties are optional.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="doqrypurepicker.part.html" class="tsd-signature-type" data-tsd-kind="Interface">Part</a>
+						<a href="DoqryPureSelector.Part.html" class="tsd-signature-type" data-tsd-kind="Interface">Part</a>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Part</span>
@@ -109,13 +99,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="doqrypicker.part.html#_" class="tsd-kind-icon">$</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="doqrypicker.part.html#c" class="tsd-kind-icon">c</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="doqrypicker.part.html#e" class="tsd-kind-icon">e</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="doqrypicker.part.html#i" class="tsd-kind-icon">i</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="doqrypicker.part.html#ns" class="tsd-kind-icon">ns</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="doqrypicker.part.html#s" class="tsd-kind-icon">s</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="doqrypicker.part.html#u" class="tsd-kind-icon">u</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="DoqrySelector.Part.html#_" class="tsd-kind-icon">$</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="DoqrySelector.Part.html#c" class="tsd-kind-icon">c</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="DoqrySelector.Part.html#e" class="tsd-kind-icon">e</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="DoqrySelector.Part.html#i" class="tsd-kind-icon">i</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="DoqrySelector.Part.html#ns" class="tsd-kind-icon">ns</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="DoqrySelector.Part.html#s" class="tsd-kind-icon">s</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="DoqrySelector.Part.html#u" class="tsd-kind-icon">u</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,34 +116,35 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="_" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> $</h3>
-					<div class="tsd-signature tsd-kind-icon">$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></div>
+					<div class="tsd-signature tsd-kind-icon">$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/picker.ts#L48">picker.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/selector.ts#L42">selector.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Array of qualifiers.</p>
+							<p>Qualifier or qualifiers.</p>
 						</div>
-						<p>Either absent, or non-empty and containing non-empty qualifiers sorted alphabetically.</p>
+						<p>Qualifiers are typically not rendered as CSS selector text, but rather used to distinguish between style rules.</p>
+						<p>Qualifier may have a <code>name=value</code> form. The <code>name</code> part may be qualified by separating name parts with colons.</p>
+						<p>Example: <code>foo:bar:baz=some value</code> matches <code>foo:bar:baz=some value</code>, <code>foo:bar:baz</code>, <code>foo:bar</code>, and <code>foo</code>.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="c" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> c</h3>
-					<div class="tsd-signature tsd-kind-icon">c<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">QualifiedName</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">QualifiedName</span><span class="tsd-signature-symbol">]</span></div>
+					<div class="tsd-signature tsd-kind-icon">c<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">QualifiedName</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-type">QualifiedName</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="doqrypurepicker.part.html">Part</a>.<a href="doqrypurepicker.part.html#c">c</a></p>
+						<p>Inherited from <a href="DoqryPureSelector.Part.html">Part</a>.<a href="DoqryPureSelector.Part.html#c">c</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/pure-picker.ts#L41">pure-picker.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/pure-selector.ts#L62">pure-selector.ts:62</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Array of element class names.</p>
+							<p>Element class name or names.</p>
 						</div>
-						<p>Either absent, or non-empty and containing non-empty class names sorted alphabetically.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
@@ -161,9 +152,9 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> e</h3>
 					<div class="tsd-signature tsd-kind-icon">e<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">QualifiedName</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="doqrypurepicker.part.html">Part</a>.<a href="doqrypurepicker.part.html#e">e</a></p>
+						<p>Inherited from <a href="DoqryPureSelector.Part.html">Part</a>.<a href="DoqryPureSelector.Part.html#e">e</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/pure-selector.ts#L52">pure-selector.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/pure-selector.ts#L52">pure-selector.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -179,9 +170,9 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> i</h3>
 					<div class="tsd-signature tsd-kind-icon">i<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">QualifiedName</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="doqrypurepicker.part.html">Part</a>.<a href="doqrypurepicker.part.html#i">i</a></p>
+						<p>Inherited from <a href="DoqryPureSelector.Part.html">Part</a>.<a href="DoqryPureSelector.Part.html#i">i</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/pure-selector.ts#L57">pure-selector.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/pure-selector.ts#L57">pure-selector.ts:57</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -195,9 +186,9 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> ns</h3>
 					<div class="tsd-signature tsd-kind-icon">ns<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NamespaceDef</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="doqrypurepicker.part.html">Part</a>.<a href="doqrypurepicker.part.html#ns">ns</a></p>
+						<p>Inherited from <a href="DoqryPureSelector.Part.html">Part</a>.<a href="DoqryPureSelector.Part.html#ns">ns</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/pure-selector.ts#L44">pure-selector.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/pure-selector.ts#L44">pure-selector.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -211,9 +202,9 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> s</h3>
 					<div class="tsd-signature tsd-kind-icon">s<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="doqrypurepicker.part.html">Part</a>.<a href="doqrypurepicker.part.html#s">s</a></p>
+						<p>Inherited from <a href="DoqryPureSelector.Part.html">Part</a>.<a href="DoqryPureSelector.Part.html#s">s</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/pure-selector.ts#L75">pure-selector.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/pure-selector.ts#L75">pure-selector.ts:75</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -227,18 +218,17 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="u" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> u</h3>
-					<div class="tsd-signature tsd-kind-icon">u<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><a href="../modules/doqrysubpicker.html" class="tsd-signature-type" data-tsd-kind="Namespace">DoqrySubPicker</a><span class="tsd-signature-symbol">, </span><a href="../modules/doqrysubpicker.html" class="tsd-signature-type" data-tsd-kind="Namespace">DoqrySubPicker</a><span class="tsd-signature-symbol">]</span></div>
+					<div class="tsd-signature tsd-kind-icon">u<span class="tsd-signature-symbol">:</span> <a href="../modules/DoqrySubSelector.html" class="tsd-signature-type" data-tsd-kind="Namespace">DoqrySubSelector</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">readonly </span><a href="../modules/DoqrySubSelector.html" class="tsd-signature-type" data-tsd-kind="Namespace">DoqrySubSelector</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="doqrypurepicker.part.html">Part</a>.<a href="doqrypurepicker.part.html#u">u</a></p>
+						<p>Inherited from <a href="DoqryPureSelector.Part.html">Part</a>.<a href="DoqryPureSelector.Part.html#u">u</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/15c7b84/src/pure-picker.ts#L48">pure-picker.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/doqry/blob/514dd2b/src/pure-selector.ts#L67">pure-selector.ts:67</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Array of sub-pickers, each of which represents either attribute selector, pseudo-class, or pseudo-element.</p>
+							<p>Sub-selector(s) representing either attribute selector, pseudo-class, or pseudo-element.</p>
 						</div>
-						<p>Either absent or non-empty.</p>
 					</div>
 				</section>
 			</section>
@@ -250,25 +240,25 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class=" tsd-kind-namespace">
-						<a href="../modules/doqryattribute.html">Doqry<wbr>Attribute</a>
+						<a href="../modules/DoqryAttribute.html">Doqry<wbr>Attribute</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/DoqryPicker.html">Doqry<wbr>Picker</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/DoqryPurePicker.html">Doqry<wbr>Pure<wbr>Picker</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/DoqryPureSelector.html">Doqry<wbr>Pure<wbr>Selector</a>
 					</li>
 					<li class="current tsd-kind-namespace">
-						<a href="../modules/doqrypicker.html">Doqry<wbr>Picker</a>
+						<a href="../modules/DoqrySelector.html">Doqry<wbr>Selector</a>
 					</li>
 					<li class=" tsd-kind-namespace">
-						<a href="../modules/doqrypurepicker.html">Doqry<wbr>Pure<wbr>Picker</a>
+						<a href="../modules/DoqrySubPicker.html">Doqry<wbr>Sub<wbr>Picker</a>
 					</li>
 					<li class=" tsd-kind-namespace">
-						<a href="../modules/doqrypureselector.html">Doqry<wbr>Pure<wbr>Selector</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="../modules/doqryselector.html">Doqry<wbr>Selector</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="../modules/doqrysubpicker.html">Doqry<wbr>Sub<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="../modules/doqrysubselector.html">Doqry<wbr>Sub<wbr>Selector</a>
+						<a href="../modules/DoqrySubSelector.html">Doqry<wbr>Sub<wbr>Selector</a>
 					</li>
 				</ul>
 			</nav>
@@ -277,36 +267,33 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="doqrypicker.part.html" class="tsd-kind-icon">Part</a>
+						<a href="DoqrySelector.Part.html" class="tsd-kind-icon">Part</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="doqrypicker.part.html#_" class="tsd-kind-icon">$</a>
+								<a href="DoqrySelector.Part.html#_" class="tsd-kind-icon">$</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="doqrypicker.part.html#c" class="tsd-kind-icon">c</a>
+								<a href="DoqrySelector.Part.html#c" class="tsd-kind-icon">c</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="doqrypicker.part.html#e" class="tsd-kind-icon">e</a>
+								<a href="DoqrySelector.Part.html#e" class="tsd-kind-icon">e</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="doqrypicker.part.html#i" class="tsd-kind-icon">i</a>
+								<a href="DoqrySelector.Part.html#i" class="tsd-kind-icon">i</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="doqrypicker.part.html#ns" class="tsd-kind-icon">ns</a>
+								<a href="DoqrySelector.Part.html#ns" class="tsd-kind-icon">ns</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="doqrypicker.part.html#s" class="tsd-kind-icon">s</a>
+								<a href="DoqrySelector.Part.html#s" class="tsd-kind-icon">s</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="doqrypicker.part.html#u" class="tsd-kind-icon">u</a>
+								<a href="DoqrySelector.Part.html#u" class="tsd-kind-icon">u</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-namespace">
-						<a href="../modules/doqrypicker.html#mutable" class="tsd-kind-icon">Mutable</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -318,6 +305,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
 	</div>
