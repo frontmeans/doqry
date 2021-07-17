@@ -23,7 +23,7 @@
     "@frontmeans/httongue": "^2.3.0",
     "@frontmeans/namespace-aliaser": "^2.6.2",
     "@proc7ts/primitives": "^3.0.2",
-    "@proc7ts/push-iterator": "^3.0.0"
+    "@proc7ts/push-iterator": "^3.1.0"
   },
   "devDependencies": {
     "@jest/globals": "^27.0.6",
