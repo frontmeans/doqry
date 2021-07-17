@@ -1,6 +1,6 @@
 {
   "name": "@frontmeans/doqry",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Document query notation for CSS selectors",
   "keywords": [
     "css-selectors"
