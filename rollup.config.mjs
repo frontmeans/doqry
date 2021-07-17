@@ -1,4 +1,5 @@
 import nodeResolve from '@rollup/plugin-node-resolve';
+import { externalModules } from '@run-z/rollup-helpers';
 import { defineConfig } from 'rollup';
 import flatDts from 'rollup-plugin-flat-dts';
 import sourcemaps from 'rollup-plugin-sourcemaps';
@@ -18,6 +19,7 @@ export default defineConfig({
     nodeResolve(),
     sourcemaps(),
   ],
+  external: externalModules(),
   output: {
     dir: '.',
     format: 'esm',
