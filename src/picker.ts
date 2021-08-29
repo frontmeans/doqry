@@ -45,7 +45,7 @@ export namespace DoqryPicker {
      *
      * Either absent, or non-empty and containing non-empty qualifiers sorted alphabetically.
      */
-    readonly $?: readonly [string, ...string[]];
+    readonly $?: readonly [string, ...string[]] | undefined;
 
   }
 

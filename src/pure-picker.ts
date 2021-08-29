@@ -38,14 +38,14 @@ export namespace DoqryPurePicker {
      *
      * Either absent, or non-empty and containing non-empty class names sorted alphabetically.
      */
-    readonly c?: readonly [QualifiedName, ...QualifiedName[]];
+    readonly c?: readonly [QualifiedName, ...QualifiedName[]] | undefined;
 
     /**
      * Array of sub-pickers, each of which represents either attribute selector, pseudo-class, or pseudo-element.
      *
      * Either absent or non-empty.
      */
-    readonly u?: readonly [DoqrySubPicker, ...DoqrySubPicker[]];
+    readonly u?: readonly [DoqrySubPicker, ...DoqrySubPicker[]] | undefined;
 
   }
 

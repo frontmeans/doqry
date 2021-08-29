@@ -39,7 +39,7 @@ export namespace DoqrySelector {
      *
      * Example: `foo:bar:baz=some value` matches `foo:bar:baz=some value`, `foo:bar:baz`, `foo:bar`, and `foo`.
      */
-    readonly $?: string | readonly string[];
+    readonly $?: string | readonly string[] | undefined;
 
   }
 

@@ -17,14 +17,14 @@ export interface DoqryFormat {
    *
    * @returns Textual representation of `qualifier`.
    */
-  qualify?: (qualifier: string) => string;
+  qualify?: ((this: void, qualifier: string) => string) | undefined;
 
   /**
    * Namespace aliaser to use.
    *
    * New instance will be created if not specified.
    */
-  nsAlias?: NamespaceAliaser;
+  nsAlias?: NamespaceAliaser | undefined;
 
 }
 

@@ -41,7 +41,7 @@ export namespace DoqryPureSelector {
     /**
      * Element namespace.
      */
-    readonly ns?: string | NamespaceDef;
+    readonly ns?: string | NamespaceDef | undefined;
 
     /**
      * Element name.
@@ -49,22 +49,22 @@ export namespace DoqryPureSelector {
      * This is the same as `*` when absent. Unless the part contains only sub-selectors, and the first one is either
      * a pseudo-class or a pseudo-element.
      */
-    readonly e?: QualifiedName;
+    readonly e?: QualifiedName | undefined;
 
     /**
      * Element identifier.
      */
-    readonly i?: QualifiedName;
+    readonly i?: QualifiedName | undefined;
 
     /**
      * Element class name or names.
      */
-    readonly c?: QualifiedName | readonly QualifiedName[];
+    readonly c?: QualifiedName | readonly QualifiedName[] | undefined;
 
     /**
      * Sub-selector(s) representing either attribute selector, pseudo-class, or pseudo-element.
      */
-    readonly u?: DoqrySubSelector | readonly DoqrySubSelector[];
+    readonly u?: DoqrySubSelector | readonly DoqrySubSelector[] | undefined;
 
     /**
      * Raw CSS selector text to append to the end.
@@ -72,7 +72,7 @@ export namespace DoqryPureSelector {
      * When all other properties are omitted this one represents a raw CSS selector text. Otherwise it is appended
      * to other selector parts representation.
      */
-    readonly s?: string;
+    readonly s?: string | undefined;
 
   }
 

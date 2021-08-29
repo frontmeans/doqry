@@ -12,7 +12,7 @@ import { DoqrySubSelector } from './sub-selector';
 const DoqryPicker__symbol = (/*#__PURE__*/ Symbol('DoqryPicker'));
 
 type DoqrySelector$Normalizable = DoqrySelector & {
-  readonly [DoqryPicker__symbol]?: DoqryPicker;
+  readonly [DoqryPicker__symbol]?: DoqryPicker | undefined;
 };
 
 class DoqryPicker$Mutable extends Array<DoqryPicker.Part | DoqryCombinator> {
