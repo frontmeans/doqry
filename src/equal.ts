@@ -103,6 +103,7 @@ function DoqrySubPicker$equal(first: DoqrySubPicker, second: DoqrySubPicker): bo
             ),
     );
   }
+
   return first.every((str, i) => str === second[i]);
 }
 

@@ -24,6 +24,7 @@ function DoqryQualifier$formatName(name: string): string {
   if (name[0] === '@') {
     return '@' + DoqryQualifier$formatRawName(name.substr(1));
   }
+
   return '$' + DoqryQualifier$formatRawName(name);
 }
 

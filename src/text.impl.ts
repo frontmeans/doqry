@@ -33,6 +33,7 @@ export function DoqryPicker$format(
         if (result && !isDoqryCombinator(result[result.length - 1])) {
           result += ' ';
         }
+
         return result + DoqryPicker$Part$format(item, format);
       },
       '',
@@ -102,6 +103,7 @@ function DoqryPicker$Part$format(
     if (hasProperties) {
       return `${e ? html__naming.name(e, nsAlias) : ''}${out}`;
     }
+
     return `${e ? html__naming.name(e, nsAlias) : '*'}${out}`;
   }
 }

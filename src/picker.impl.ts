@@ -81,8 +81,10 @@ function DoqrySelector$normalizeKey(key: DoqrySelector.Part | string): DoqryPick
     if (!key) {
       return {};
     }
+
     return { s: key };
   }
+
   return DoqrySelector$Part$normalize(key);
 }
 
