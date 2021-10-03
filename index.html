@@ -1,239 +1,83 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Namespace Aliaser</title>
-	<meta name="description" content="Documentation for Namespace Aliaser">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">Namespace Aliaser</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<h1>Namespace Aliaser</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#document-query-notation" id="document-query-notation" style="color: inherit; text-decoration: none;">
-					<h1>Document Query Notation</h1>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@frontmeans/doqry"><img src="https://img.shields.io/npm/v/@frontmeans/doqry.svg?logo=npm" alt="NPM"></a>
-					<a href="https://github.com/frontmeans/doqry/actions?query=workflow%3ABuild"><img src="https://github.com/frontmeans/doqry/workflows/Build/badge.svg" alt="Build Status"></a>
-					<a href="https://www.codacy.com/gh/frontmeans/doqry/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/doqry&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/e5162aa2af494839bdefea342cf04eff" alt="Code Quality"></a>
-					<a href="https://www.codacy.com/gh/frontmeans/doqry/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/doqry&amp;utm_campaign=Badge_Coverage"><img src="https://app.codacy.com/project/badge/Coverage/e5162aa2af494839bdefea342cf04eff" alt="Coverage"></a>
-					<a href="https://github.com/frontmeans/doqry"><img src="https://img.shields.io/static/v1?logo=github&label=GitHub&message=project&color=informational" alt="GitHub Project"></a>
-				<a href="https://frontmeans.github.io/doqry/"><img src="https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational" alt="API Documentation"></a></p>
-				<a href="#structured-css-selectors" id="structured-css-selectors" style="color: inherit; text-decoration: none;">
-					<h2>Structured CSS Selectors</h2>
-				</a>
-				<p>Doqry represents CSS selectors as data structures rather than trying to parse selectors text.</p>
-				<p>Structured CSS selector is one of:</p>
-				<ul>
-					<li>raw CSS selector text,</li>
-					<li>CSS selector part, or</li>
-					<li>an array consisting of strings, parts, and their combinators.</li>
-				</ul>
-				<p>Raw CSS selector text is never interpreted and is used verbatim.</p>
-				<p>CSS combinator is one of: <code>&gt;</code>, <code>+</code>, or <code>~</code>.</p>
-				<p>CSS selector part is a structure representing selectors like
-					<code>element-name#id.class1.classN[attr1][attr2]:pseudo-class::pseudo-element</code>.
-				Each selector part is represented by corresponding property:</p>
-				<ul>
-					<li>Element selector:
-					<code>{ e: &#39;element-name&#39; }</code> for <code>element-name</code>.</li>
-					<li>Element selector in XML namespace:
-					<code>{ ns: &#39;ns-prefix&#39;, e: &#39;element-name&#39; }</code> for <code>ns-prefix | element-name</code>.</li>
-					<li>Universal element selector:
-					<code>{ e: &#39;*&#39; }</code>, which is the same as <code>{}</code> for <code>*</code>.</li>
-					<li>Universal element selector in XML namespace:
-					<code>{ ns: &#39;ns-prefix&#39;, e: &#39;*&#39; }</code>, which is the same as <code>{ ns: &#39;ns-prefix&#39; }</code> for <code>ns-prefix | *</code>.</li>
-					<li>Element identifier:
-					<code>{ i: &#39;element-id&#39; }</code> for <code>#element-id</code>.</li>
-					<li>Element class:
-					<code>{ c: &#39;class-name&#39; }</code> for <code>.class-name</code>.</li>
-					<li>Multiple element classes:
-					<code>{ c: [&#39;class-1&#39;, &#39;class-2&#39;] }</code> for <code>.class-1.class-2</code>.</li>
-					<li>Attribute selector:
-						<code>{ u: [&#39;disabled&#39;] }</code> for <code>[disabled]</code>,
-					<code>{ u: [&#39;lang&#39;, &#39;|=&#39;, &#39;en&#39;] }</code> for <code>[lang |= &quot;en&quot;]</code>.</li>
-					<li>Pseudo-element:
-					<code>{ e: &#39;li&#39;, u: [&#39;::&#39;, &#39;after&#39;] }</code> for <code>li::after</code>.</li>
-					<li>Pseudo-class:
-						<code>{ u: [&#39;:&#39;, &#39;host&#39;, { c: &#39;active&#39; }] }</code> for <code>:host(.active)</code>,
-						<code>{ u: [&#39;:&#39;, &#39;is&#39;, [{ e: &#39;ul&#39; }, &#39;&gt;&#39;, { e: &#39;li&#39; }], [{ c: &#39;menu&#39;}, { c: &#39;menu-item&#39;}]] }</code>
-					for <code>:is(ul &gt; li, .menu &gt; .menu-item)</code></li>
-					<li>Additional selectors:
-					<code>{ e: &#39;a&#39;, s: &#39;[href^=https://]:visited&#39; }</code> for <code>a[href^=https://]:visited</code>.</li>
-					<li>Raw CSS selector:
-					<code>{ s: &#39;.my-selector&#39; }</code> for <code>.my-selector</code>.</li>
-				</ul>
-				<p>Selector part may combine multiple properties. Parts may be combined too.
-				E.g. <code>[{ e: &#39;ul&#39;, c: &#39;unstyled&#39; }, &#39;&gt;&#39;, { e: &#39;li&#39; }]</code> corresponds to <code>ul.unstyled &gt; li</code> CSS selector.</p>
-				<a href="#qualifiers" id="qualifiers" style="color: inherit; text-decoration: none;">
-					<h3>Qualifiers</h3>
-				</a>
-				<p>CSS selector may include qualifiers. Qualifiers do not correspond to CSS selectors directly. Instead, they are used
-				internally to classify selectors. E.g. they may represent <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> selectors.</p>
-				<p>Qualifiers represented by <code>$</code> property of structured CSS selector part, that may contain either one qualifier, or an
-					array of qualifiers:
-				<code>{ c: &#39;sr-only&#39;, $: &#39;@media=screen&#39; }</code>.</p>
-				<p>Each qualifier is a string in the <code>&lt;name&gt;[=&lt;value&gt;]</code> format, where the <code>&lt;name&gt;</code> may be qualified and consist of multiple
-				colon-separated parts like <code>block:visibility:hidden</code>.</p>
-				<p>The presence of <code>q1:q2:q3=v</code> qualifier means the same as presence of <code>q1</code>, <code>q1:q2</code>, <code>q1:q2:q3</code>, and <code>q1:q2:q3=v</code>
-				qualifiers.</p>
-				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
-					<h2>API</h2>
-				</a>
-				<p>The following operations over structure CSS selectors supported:</p>
-				<ul>
-					<li><code>doqryDisplayText(selector)</code> - Converts <code>selector</code> to textual representation including qualifiers.</li>
-					<li><code>doqryEqual(first, second)</code> - Checks whether the <code>first</code> selector equals to the <code>second</code> one.</li>
-					<li><code>doqryPicker(selector)</code> - Normalizes <code>selector</code> representation and converts it to CSS picker.</li>
-					<li><code>doqryText(selector, format?)</code> - Converts <code>selector</code> to textual representation in the given <code>format</code>.
-					By default, converts to representation that can be used in CSS (i.e. without qualifiers).</li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="modules.html">Exports</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="modules/DoqryAttribute.html">Doqry<wbr>Attribute</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="modules/DoqryPicker.html">Doqry<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="modules/DoqryPurePicker.html">Doqry<wbr>Pure<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="modules/DoqryPureSelector.html">Doqry<wbr>Pure<wbr>Selector</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="modules/DoqrySelector.html">Doqry<wbr>Selector</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="modules/DoqrySubPicker.html">Doqry<wbr>Sub<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-namespace">
-						<a href="modules/DoqrySubSelector.html">Doqry<wbr>Sub<wbr>Selector</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/DoqryFormat.html" class="tsd-kind-icon">Doqry<wbr>Format</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqryAttribute" class="tsd-kind-icon">Doqry<wbr>Attribute</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqryCombinator" class="tsd-kind-icon">Doqry<wbr>Combinator</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqryPicker" class="tsd-kind-icon">Doqry<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqryPurePicker" class="tsd-kind-icon">Doqry<wbr>Pure<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqryPureSelector" class="tsd-kind-icon">Doqry<wbr>Pure<wbr>Selector</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqrySelector" class="tsd-kind-icon">Doqry<wbr>Selector</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqrySubPicker" class="tsd-kind-icon">Doqry<wbr>Sub<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#DoqrySubSelector" class="tsd-kind-icon">Doqry<wbr>Sub<wbr>Selector</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#doqryDisplayText" class="tsd-kind-icon">doqry<wbr>Display<wbr>Text</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#doqryEqual" class="tsd-kind-icon">doqry<wbr>Equal</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#doqryPicker" class="tsd-kind-icon">doqry<wbr>Picker</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#doqryPickerPart" class="tsd-kind-icon">doqry<wbr>Picker<wbr>Part</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#doqryText" class="tsd-kind-icon">doqry<wbr>Text</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isDoqryCombinator" class="tsd-kind-icon">is<wbr>Doqry<wbr>Combinator</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Namespace Aliaser</title><meta name="description" content="Documentation for Namespace Aliaser"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">Namespace Aliaser</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>Namespace Aliaser</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#document-query-notation" id="document-query-notation" style="color: inherit; text-decoration: none;">
+  <h1>Document Query Notation</h1>
+</a>
+<p><a href="https://www.npmjs.com/package/@frontmeans/doqry"><img src="https://img.shields.io/npm/v/@frontmeans/doqry.svg?logo=npm" alt="NPM"></a>
+<a href="https://github.com/frontmeans/doqry/actions?query=workflow%3ABuild"><img src="https://github.com/frontmeans/doqry/workflows/Build/badge.svg" alt="Build Status"></a>
+<a href="https://www.codacy.com/gh/frontmeans/doqry/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/doqry&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/e5162aa2af494839bdefea342cf04eff" alt="Code Quality"></a>
+<a href="https://www.codacy.com/gh/frontmeans/doqry/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/doqry&amp;utm_campaign=Badge_Coverage"><img src="https://app.codacy.com/project/badge/Coverage/e5162aa2af494839bdefea342cf04eff" alt="Coverage"></a>
+<a href="https://github.com/frontmeans/doqry"><img src="https://img.shields.io/static/v1?logo=github&label=GitHub&message=project&color=informational" alt="GitHub Project"></a>
+<a href="https://frontmeans.github.io/doqry/"><img src="https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational" alt="API Documentation"></a></p>
+
+<a href="#structured-css-selectors" id="structured-css-selectors" style="color: inherit; text-decoration: none;">
+  <h2>Structured CSS Selectors</h2>
+</a>
+<p>Doqry represents CSS selectors as data structures rather than trying to parse selectors text.</p>
+<p>Structured CSS selector is one of:</p>
+<ul>
+<li>raw CSS selector text,</li>
+<li>CSS selector part, or</li>
+<li>an array consisting of strings, parts, and their combinators.</li>
+</ul>
+<p>Raw CSS selector text is never interpreted and is used verbatim.</p>
+<p>CSS combinator is one of: <code>&gt;</code>, <code>+</code>, or <code>~</code>.</p>
+<p>CSS selector part is a structure representing selectors like
+<code>element-name#id.class1.classN[attr1][attr2]:pseudo-class::pseudo-element</code>.
+Each selector part is represented by corresponding property:</p>
+<ul>
+<li>Element selector:
+<code>{ e: &#39;element-name&#39; }</code> for <code>element-name</code>.</li>
+<li>Element selector in XML namespace:
+<code>{ ns: &#39;ns-prefix&#39;, e: &#39;element-name&#39; }</code> for <code>ns-prefix | element-name</code>.</li>
+<li>Universal element selector:
+<code>{ e: &#39;*&#39; }</code>, which is the same as <code>{}</code> for <code>*</code>.</li>
+<li>Universal element selector in XML namespace:
+<code>{ ns: &#39;ns-prefix&#39;, e: &#39;*&#39; }</code>, which is the same as <code>{ ns: &#39;ns-prefix&#39; }</code> for <code>ns-prefix | *</code>.</li>
+<li>Element identifier:
+<code>{ i: &#39;element-id&#39; }</code> for <code>#element-id</code>.</li>
+<li>Element class:
+<code>{ c: &#39;class-name&#39; }</code> for <code>.class-name</code>.</li>
+<li>Multiple element classes:
+<code>{ c: [&#39;class-1&#39;, &#39;class-2&#39;] }</code> for <code>.class-1.class-2</code>.</li>
+<li>Attribute selector:
+<code>{ u: [&#39;disabled&#39;] }</code> for <code>[disabled]</code>,
+<code>{ u: [&#39;lang&#39;, &#39;|=&#39;, &#39;en&#39;] }</code> for <code>[lang |= &quot;en&quot;]</code>.</li>
+<li>Pseudo-element:
+<code>{ e: &#39;li&#39;, u: [&#39;::&#39;, &#39;after&#39;] }</code> for <code>li::after</code>.</li>
+<li>Pseudo-class:
+<code>{ u: [&#39;:&#39;, &#39;host&#39;, { c: &#39;active&#39; }] }</code> for <code>:host(.active)</code>,
+<code>{ u: [&#39;:&#39;, &#39;is&#39;, [{ e: &#39;ul&#39; }, &#39;&gt;&#39;, { e: &#39;li&#39; }], [{ c: &#39;menu&#39;}, { c: &#39;menu-item&#39;}]] }</code>
+for <code>:is(ul &gt; li, .menu &gt; .menu-item)</code></li>
+<li>Additional selectors:
+<code>{ e: &#39;a&#39;, s: &#39;[href^=https://]:visited&#39; }</code> for <code>a[href^=https://]:visited</code>.</li>
+<li>Raw CSS selector:
+<code>{ s: &#39;.my-selector&#39; }</code> for <code>.my-selector</code>.</li>
+</ul>
+<p>Selector part may combine multiple properties. Parts may be combined too.
+E.g. <code>[{ e: &#39;ul&#39;, c: &#39;unstyled&#39; }, &#39;&gt;&#39;, { e: &#39;li&#39; }]</code> corresponds to <code>ul.unstyled &gt; li</code> CSS selector.</p>
+
+<a href="#qualifiers" id="qualifiers" style="color: inherit; text-decoration: none;">
+  <h3>Qualifiers</h3>
+</a>
+<p>CSS selector may include qualifiers. Qualifiers do not correspond to CSS selectors directly. Instead, they are used
+internally to classify selectors. E.g. they may represent <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> selectors.</p>
+<p>Qualifiers represented by <code>$</code> property of structured CSS selector part, that may contain either one qualifier, or an
+array of qualifiers:
+<code>{ c: &#39;sr-only&#39;, $: &#39;@media=screen&#39; }</code>.</p>
+<p>Each qualifier is a string in the <code>&lt;name&gt;[=&lt;value&gt;]</code> format, where the <code>&lt;name&gt;</code> may be qualified and consist of multiple
+colon-separated parts like <code>block:visibility:hidden</code>.</p>
+<p>The presence of <code>q1:q2:q3=v</code> qualifier means the same as presence of <code>q1</code>, <code>q1:q2</code>, <code>q1:q2:q3</code>, and <code>q1:q2:q3=v</code>
+qualifiers.</p>
+
+<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+  <h2>API</h2>
+</a>
+<p>The following operations over structure CSS selectors supported:</p>
+<ul>
+<li><code>doqryDisplayText(selector)</code> - Converts <code>selector</code> to textual representation including qualifiers.</li>
+<li><code>doqryEqual(first, second)</code> - Checks whether the <code>first</code> selector equals to the <code>second</code> one.</li>
+<li><code>doqryPicker(selector)</code> - Normalizes <code>selector</code> representation and converts it to CSS picker.</li>
+<li><code>doqryText(selector, format?)</code> - Converts <code>selector</code> to textual representation in the given <code>format</code>.
+By default, converts to representation that can be used in CSS (i.e. without qualifiers).</li>
+</ul>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li><li class=" tsd-kind-namespace"><a href="modules/DoqryAttribute.html">Doqry<wbr/>Attribute</a></li><li class=" tsd-kind-namespace"><a href="modules/DoqryPicker.html">Doqry<wbr/>Picker</a></li><li class=" tsd-kind-namespace"><a href="modules/DoqryPurePicker.html">Doqry<wbr/>Pure<wbr/>Picker</a></li><li class=" tsd-kind-namespace"><a href="modules/DoqryPureSelector.html">Doqry<wbr/>Pure<wbr/>Selector</a></li><li class=" tsd-kind-namespace"><a href="modules/DoqrySelector.html">Doqry<wbr/>Selector</a></li><li class=" tsd-kind-namespace"><a href="modules/DoqrySubPicker.html">Doqry<wbr/>Sub<wbr/>Picker</a></li><li class=" tsd-kind-namespace"><a href="modules/DoqrySubSelector.html">Doqry<wbr/>Sub<wbr/>Selector</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-interface"><a href="interfaces/DoqryFormat.html" class="tsd-kind-icon">Doqry<wbr/>Format</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqryAttribute" class="tsd-kind-icon">Doqry<wbr/>Attribute</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqryCombinator" class="tsd-kind-icon">Doqry<wbr/>Combinator</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqryPicker" class="tsd-kind-icon">Doqry<wbr/>Picker</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqryPurePicker" class="tsd-kind-icon">Doqry<wbr/>Pure<wbr/>Picker</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqryPureSelector" class="tsd-kind-icon">Doqry<wbr/>Pure<wbr/>Selector</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqrySelector" class="tsd-kind-icon">Doqry<wbr/>Selector</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqrySubPicker" class="tsd-kind-icon">Doqry<wbr/>Sub<wbr/>Picker</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DoqrySubSelector" class="tsd-kind-icon">Doqry<wbr/>Sub<wbr/>Selector</a></li><li class="tsd-kind-function"><a href="modules.html#doqryDisplayText" class="tsd-kind-icon">doqry<wbr/>Display<wbr/>Text</a></li><li class="tsd-kind-function"><a href="modules.html#doqryEqual" class="tsd-kind-icon">doqry<wbr/>Equal</a></li><li class="tsd-kind-function"><a href="modules.html#doqryPicker" class="tsd-kind-icon">doqry<wbr/>Picker</a></li><li class="tsd-kind-function"><a href="modules.html#doqryPickerPart" class="tsd-kind-icon">doqry<wbr/>Picker<wbr/>Part</a></li><li class="tsd-kind-function"><a href="modules.html#doqryText" class="tsd-kind-icon">doqry<wbr/>Text</a></li><li class="tsd-kind-function"><a href="modules.html#isDoqryCombinator" class="tsd-kind-icon">is<wbr/>Doqry<wbr/>Combinator</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
