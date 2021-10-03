@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Module @frontmeans/doqry
+ * @module @frontmeans/doqry
  */
 export * from './attribute';
 export * from './combinator';
