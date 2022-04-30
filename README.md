@@ -1,5 +1,4 @@
-Document Query Notation
-=======================
+# Document Query Notation
 
 [![NPM][npm-image]][npm-url]
 [![Build Status][build-status-img]][build-status-link]
@@ -7,7 +6,6 @@ Document Query Notation
 [![Coverage][coverage-img]][coverage-link]
 [![GitHub Project][github-image]][github-url]
 [![API Documentation][api-docs-image]][api-docs-url]
-
 
 [npm-image]: https://img.shields.io/npm/v/@frontmeans/doqry.svg?logo=npm
 [npm-url]: https://www.npmjs.com/package/@frontmeans/doqry
@@ -22,9 +20,7 @@ Document Query Notation
 [api-docs-image]: https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational
 [api-docs-url]: https://frontmeans.github.io/doqry/
 
-
-Structured CSS Selectors
-------------------------
+## Structured CSS Selectors
 
 Doqry represents CSS selectors as data structures rather than trying to parse selectors text.
 
@@ -73,7 +69,6 @@ Each selector part is represented by corresponding property:
 Selector part may combine multiple properties. Parts may be combined too.
 E.g. `[{ e: 'ul', c: 'unstyled' }, '>', { e: 'li' }]` corresponds to `ul.unstyled > li` CSS selector.
 
-
 ### Qualifiers
 
 CSS selector may include qualifiers. Qualifiers do not correspond to CSS selectors directly. Instead, they are used
@@ -91,9 +86,7 @@ qualifiers.
 
 [at-rule]: https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
 
-
-API
----
+## API
 
 The following operations over structure CSS selectors supported:
 
