@@ -3,7 +3,6 @@ import { beforeEach, describe, expect, it } from '@jest/globals';
 import { doqryEqual } from './equal';
 
 describe('doqryEqual', () => {
-
   let ns1: NamespaceDef;
   let ns2: NamespaceDef;
 
@@ -16,10 +15,16 @@ describe('doqryEqual', () => {
     expect(doqryEqual([{ e: 'ul' }, '>', { e: 'li' }], [{ e: 'ul' }, { e: 'li' }])).toBe(false);
   });
   it('compares combinators', () => {
-    expect(doqryEqual([{ e: 'h1' }, '>', { e: 'h2' }], [{ e: 'h1' }, '+', { e: 'h2' }])).toBe(false);
+    expect(doqryEqual([{ e: 'h1' }, '>', { e: 'h2' }], [{ e: 'h1' }, '+', { e: 'h2' }])).toBe(
+      false,
+    );
     expect(doqryEqual([{ e: 'h1' }, '>', { e: 'h2' }], [{ e: 'h1' }, '>', { e: 'h2' }])).toBe(true);
-    expect(doqryEqual([{ e: 'h1' }, '>', { e: 'h2' }], [{ e: 'h1' }, { e: 'h2' }, { e: 'h3' }])).toBe(false);
-    expect(doqryEqual([{ e: 'h1' }, { e: 'h2' }, { e: 'h3' }], [{ e: 'h1' }, '>', { e: 'h2' }])).toBe(false);
+    expect(
+      doqryEqual([{ e: 'h1' }, '>', { e: 'h2' }], [{ e: 'h1' }, { e: 'h2' }, { e: 'h3' }]),
+    ).toBe(false);
+    expect(
+      doqryEqual([{ e: 'h1' }, { e: 'h2' }, { e: 'h3' }], [{ e: 'h1' }, '>', { e: 'h2' }]),
+    ).toBe(false);
   });
   it('compares namespaces', () => {
     expect(doqryEqual([{ ns: 'a', e: 'span' }], [{ ns: 'b', e: 'span' }])).toBe(false);
@@ -60,7 +65,9 @@ describe('doqryEqual', () => {
     expect(doqryEqual([{ u: [['attr']] }], [{ u: [['attr']] }])).toBe(true);
     expect(doqryEqual([{ u: [['attr']] }], [{ u: [['attr2']] }])).toBe(false);
     expect(doqryEqual([{ u: [['attr']] }], [{ u: [['attr', '=', 'value']] }])).toBe(false);
-    expect(doqryEqual([{ u: [['attr', '=', 'value']] }], [{ u: [['attr', '=', 'value2']] }])).toBe(false);
+    expect(doqryEqual([{ u: [['attr', '=', 'value']] }], [{ u: [['attr', '=', 'value2']] }])).toBe(
+      false,
+    );
     expect(doqryEqual([{ e: 'div', u: [['id']] }], [{ e: 'div' }])).toBe(false);
     expect(doqryEqual([{ e: 'div' }], [{ e: 'div', u: [['id']] }])).toBe(false);
     expect(doqryEqual([{ u: [['attr']] }], [{ u: [['attr'], ['attr2']] }])).toBe(false);
@@ -68,14 +75,18 @@ describe('doqryEqual', () => {
   it('compares pseudo- sub-selectors', () => {
     expect(doqryEqual([{ u: [[':', 'host']] }], [{ u: [[':', 'host']] }])).toBe(true);
     expect(doqryEqual([{ u: [[':', 'before']] }], [{ u: [['::', 'before']] }])).toBe(false);
-    expect(doqryEqual(
+    expect(
+      doqryEqual(
         [{ u: [[':', 'host', [{ c: ['active'] }]]] }],
         [{ u: [[':', 'host', [{ c: ['active'] }]]] }],
-    )).toBe(true);
-    expect(doqryEqual(
+      ),
+    ).toBe(true);
+    expect(
+      doqryEqual(
         [{ u: [[':', 'host', [{ c: ['active'] }]]] }],
         [{ u: [[':', 'host', [{ c: ['inactive'] }]]] }],
-    )).toBe(false);
+      ),
+    ).toBe(false);
   });
   it('compares qualifiers', () => {
     expect(doqryEqual([{ $: ['a'] }], [{ $: ['b'] }])).toBe(false);

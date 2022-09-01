@@ -15,12 +15,9 @@ import { DoqryPureSelector } from './pure-selector';
  * [pseudo-class]: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
  * [pseudo-element]: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
  */
-export type DoqrySubSelector =
-    | DoqryAttribute
-    | DoqrySubSelector.Pseudo;
+export type DoqrySubSelector = DoqryAttribute | DoqrySubSelector.Pseudo;
 
 export namespace DoqrySubSelector {
-
   /**
    * Structured CSS pseudo-class or pseudo-element selector.
    *
@@ -33,8 +30,8 @@ export namespace DoqrySubSelector {
    * Multiple colon-separated parameters may be represented as tuples.
    */
   export type Pseudo =
-      | readonly [PseudoPrefix, string, ...Parameter]
-      | readonly [PseudoPrefix, string, ...Parameter[]];
+    | readonly [PseudoPrefix, string, ...Parameter]
+    | readonly [PseudoPrefix, string, ...Parameter[]];
 
   /**
    * Pseudo-class (`:`) or pseudo-element (`::`) prefix.
@@ -49,5 +46,4 @@ export namespace DoqrySubSelector {
    * Raw string parameter may be represented either by string, or by sub-selector part containing only `s` property.
    */
   export type Parameter = readonly (string | DoqryPureSelector.Part | DoqryCombinator)[];
-
 }

@@ -6,7 +6,6 @@ import { DoqryPicker$format } from './text.impl';
 
 const DoqryFormat$display: DoqryFormat = {
   qualify(qualifier: string) {
-
     const eqIdx = qualifier.indexOf('=');
 
     if (eqIdx < 0) {
@@ -31,7 +30,6 @@ function DoqryQualifier$formatName(name: string): string {
 function DoqryQualifier$formatRawName(name: string): string {
   return name.split(':').map(escapeCSS).join(':');
 }
-
 
 /**
  * Converts structured CSS selector to its display textual representation including qualifiers.

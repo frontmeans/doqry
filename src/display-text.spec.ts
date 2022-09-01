@@ -3,11 +3,13 @@ import { doqryDisplayText } from './display-text';
 
 describe('doqryDisplayText', () => {
   it('formats qualifiers', () => {
-    expect(doqryDisplayText([{ e: 'span', $: ['foo:+bar=baz ban'] }]))
-        .toBe('span$foo$foo:\\+bar$foo:\\+bar(baz ban)');
+    expect(doqryDisplayText([{ e: 'span', $: ['foo:+bar=baz ban'] }])).toBe(
+      'span$foo$foo:\\+bar$foo:\\+bar(baz ban)',
+    );
   });
   it('formats `@`-prefixed qualifiers', () => {
-    expect(doqryDisplayText([{ e: 'span', $: ['@foo:bar=baz'] }]))
-        .toBe('span@foo@foo:bar@foo:bar(baz)');
+    expect(doqryDisplayText([{ e: 'span', $: ['@foo:bar=baz'] }])).toBe(
+      'span@foo@foo:bar@foo:bar(baz)',
+    );
   });
 });

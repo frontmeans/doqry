@@ -16,15 +16,15 @@ import { DoqrySubPicker } from './sub-picker';
  * @returns `true` if selectors are equal, `false` otherwise.
  */
 export function doqryEqual(
-    first: DoqrySelector | DoqryPureSelector,
-    second: DoqrySelector | DoqryPureSelector,
+  first: DoqrySelector | DoqryPureSelector,
+  second: DoqrySelector | DoqryPureSelector,
 ): boolean {
   return arraysAreEqual(doqryPicker(first), doqryPicker(second), DoqryPicker$Part$equal);
 }
 
 function DoqryPicker$Part$equal(
-    first: DoqryPicker.Part | DoqryCombinator,
-    second: DoqryPicker.Part | DoqryCombinator,
+  first: DoqryPicker.Part | DoqryCombinator,
+  second: DoqryPicker.Part | DoqryCombinator,
 ): boolean {
   if (typeof first === 'string') {
     return first === second;
@@ -33,17 +33,19 @@ function DoqryPicker$Part$equal(
     return false;
   }
 
-  return DoqryNamespace$equal(first.ns, second.ns)
-      && DoqryName$equal(first.e, second.e)
-      && DoqryName$equal(first.i, second.i)
-      && DoqryClass$allEqual(first.c, second.c)
-      && DoqrySubPicker$allEqual(first.u, second.u)
-      && DoqryQualifier$allEqual(first.$, second.$);
+  return (
+    DoqryNamespace$equal(first.ns, second.ns)
+    && DoqryName$equal(first.e, second.e)
+    && DoqryName$equal(first.i, second.i)
+    && DoqryClass$allEqual(first.c, second.c)
+    && DoqrySubPicker$allEqual(first.u, second.u)
+    && DoqryQualifier$allEqual(first.$, second.$)
+  );
 }
 
 function DoqryNamespace$equal(
-    first: string | NamespaceDef | undefined,
-    second: string | NamespaceDef | undefined,
+  first: string | NamespaceDef | undefined,
+  second: string | NamespaceDef | undefined,
 ): boolean {
   if (!first || typeof first === 'string') {
     return first === second;
@@ -55,15 +57,16 @@ function DoqryNamespace$equal(
   return first.url === second.url;
 }
 
-function DoqryName$equal(first: QualifiedName | undefined, second: QualifiedName | undefined): boolean {
-  return first == null
-      ? second == null
-      : second != null && namesEqual(first, second);
+function DoqryName$equal(
+  first: QualifiedName | undefined,
+  second: QualifiedName | undefined,
+): boolean {
+  return first == null ? second == null : second != null && namesEqual(first, second);
 }
 
 function DoqryClass$allEqual(
-    first: readonly QualifiedName[] | undefined,
-    second: readonly QualifiedName[] | undefined,
+  first: readonly QualifiedName[] | undefined,
+  second: readonly QualifiedName[] | undefined,
 ): boolean {
   if (!first) {
     return !second;
@@ -76,8 +79,8 @@ function DoqryClass$allEqual(
 }
 
 function DoqrySubPicker$allEqual(
-    first: readonly DoqrySubPicker[] | undefined,
-    second: readonly DoqrySubPicker[] | undefined,
+  first: readonly DoqrySubPicker[] | undefined,
+  second: readonly DoqrySubPicker[] | undefined,
 ): boolean {
   if (!first) {
     return !second;
@@ -94,22 +97,17 @@ function DoqrySubPicker$equal(first: DoqrySubPicker, second: DoqrySubPicker): bo
     return false;
   }
   if (DoqrySubSelector$isPseudo(first)) {
-    return first.every(
-        (p, i) => i < 2
-            ? p === second[i]
-            : doqryEqual(
-                p as DoqrySubPicker.Parameter,
-                second[i] as DoqrySubPicker.Parameter,
-            ),
-    );
+    return first.every((p, i) => i < 2
+        ? p === second[i]
+        : doqryEqual(p as DoqrySubPicker.Parameter, second[i] as DoqrySubPicker.Parameter));
   }
 
   return first.every((str, i) => str === second[i]);
 }
 
 function DoqryQualifier$allEqual(
-    first: readonly string[] | undefined,
-    second: readonly string[] | undefined,
+  first: readonly string[] | undefined,
+  second: readonly string[] | undefined,
 ): boolean {
   if (!first) {
     return !second;

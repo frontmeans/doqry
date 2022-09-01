@@ -18,12 +18,11 @@ import { DoqrySubSelector } from './sub-selector';
  * qualifiers.
  */
 export type DoqryPureSelector =
-    | string
-    | DoqryPureSelector.Part
-    | readonly (string | DoqryPureSelector.Part | DoqryCombinator)[];
+  | string
+  | DoqryPureSelector.Part
+  | readonly (string | DoqryPureSelector.Part | DoqryCombinator)[];
 
 export namespace DoqryPureSelector {
-
   /**
    * A part of pure CSS selector.
    *
@@ -37,7 +36,6 @@ export namespace DoqryPureSelector {
    * not support qualifiers.
    */
   export interface Part {
-
     /**
      * Element namespace.
      */
@@ -73,7 +71,5 @@ export namespace DoqryPureSelector {
      * to other selector parts representation.
      */
     readonly s?: string | undefined;
-
   }
-
 }

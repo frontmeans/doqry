@@ -14,7 +14,6 @@ import { DoqrySubPicker } from './sub-picker';
 export type DoqryPurePicker = readonly (DoqryPurePicker.Part | DoqryCombinator)[];
 
 export namespace DoqryPurePicker {
-
   /**
    * A part of the {@link DoqryPurePicker pure CSS picker}.
    *
@@ -32,7 +31,6 @@ export namespace DoqryPurePicker {
    * qualifiers.
    */
   export interface Part extends DoqryPureSelector.Part {
-
     /**
      * Array of element class names.
      *
@@ -46,7 +44,5 @@ export namespace DoqryPurePicker {
      * Either absent or non-empty.
      */
     readonly u?: readonly [DoqrySubPicker, ...DoqrySubPicker[]] | undefined;
-
   }
-
 }

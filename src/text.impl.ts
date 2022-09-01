@@ -16,28 +16,21 @@ import { DoqryFormat } from './text';
 const DoqryFormat$default: DoqryFormat = {};
 
 export function DoqryPicker$format(
-    selector: DoqryPicker,
-    {
-      qualify,
-      nsAlias = newNamespaceAliaser(),
-    }: DoqryFormat = DoqryFormat$default,
+  selector: DoqryPicker,
+  { qualify, nsAlias = newNamespaceAliaser() }: DoqryFormat = DoqryFormat$default,
 ): string {
-
   const format: DoqryFormat$ForPart = { qualify, nsAlias };
 
-  return selector.reduce(
-      (result, item) => {
-        if (isDoqryCombinator(item)) {
-          return result + item;
-        }
-        if (result && !isDoqryCombinator(result[result.length - 1])) {
-          result += ' ';
-        }
+  return selector.reduce((result, item) => {
+    if (isDoqryCombinator(item)) {
+      return result + item;
+    }
+    if (result && !isDoqryCombinator(result[result.length - 1])) {
+      result += ' ';
+    }
 
-        return result + DoqryPicker$Part$format(item, format);
-      },
-      '',
-  );
+    return result + DoqryPicker$Part$format(item, format);
+  }, '');
 }
 
 interface DoqryFormat$ForPart extends DoqryFormat {
@@ -45,13 +38,9 @@ interface DoqryFormat$ForPart extends DoqryFormat {
 }
 
 function DoqryPicker$Part$format(
-    item: DoqryPicker.Part,
-    {
-      qualify,
-      nsAlias,
-    }: DoqryFormat$ForPart,
+  item: DoqryPicker.Part,
+  { qualify, nsAlias }: DoqryFormat$ForPart,
 ): string {
-
   const { ns, e, i, c, s, u, $ } = item;
   let hasProperties = false;
   let out = '';
@@ -63,8 +52,8 @@ function DoqryPicker$Part$format(
   if (c) {
     hasProperties = true;
     out = c.reduce<string>(
-        (result, className) => `${result}.${escapeCSS(css__naming.name(className, nsAlias))}`,
-        out,
+      (result, className) => `${result}.${escapeCSS(css__naming.name(className, nsAlias))}`,
+      out,
     );
   }
   if (u) {
@@ -72,10 +61,7 @@ function DoqryPicker$Part$format(
 
     const subFormat: DoqryFormat$ForPart = { nsAlias };
 
-    out = u.reduce(
-        (result, sub) => DoqrySubPicker$format(result, sub, subFormat),
-        out,
-    );
+    out = u.reduce((result, sub) => DoqrySubPicker$format(result, sub, subFormat), out);
   }
   if (s) {
     hasProperties = true;
@@ -85,7 +71,6 @@ function DoqryPicker$Part$format(
     out = $.reduce((result, qualifier) => result + qualify(qualifier), out);
   }
   if (ns) {
-
     const alias = xmlNs(ns, nsAlias);
 
     if (alias) {
@@ -109,9 +94,9 @@ function DoqryPicker$Part$format(
 }
 
 function DoqrySubPicker$format(
-    out: string,
-    sub: DoqrySubPicker,
-    format: DoqryFormat$ForPart,
+  out: string,
+  sub: DoqrySubPicker,
+  format: DoqryFormat$ForPart,
 ): string {
   if (DoqrySubSelector$isPseudo(sub)) {
     out += sub[0] + sub[1];

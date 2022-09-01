@@ -3,7 +3,6 @@ import { beforeEach, describe, expect, it } from '@jest/globals';
 import { doqryPicker, doqryPickerPart } from './picker';
 
 describe('doqryPicker', () => {
-
   let nsA: NamespaceDef;
   let nsB: NamespaceDef;
 
@@ -31,13 +30,7 @@ describe('doqryPicker', () => {
     expect(doqryPicker(['abc', '>', { e: 'def' }])).toEqual([{ s: 'abc' }, '>', { e: 'def' }]);
   });
   it('handles subsequent combinators', () => {
-    expect(doqryPicker([
-      'abc',
-      '>',
-      '+',
-      '~',
-      { e: 'def' },
-    ])).toEqual([
+    expect(doqryPicker(['abc', '>', '+', '~', { e: 'def' }])).toEqual([
       { s: 'abc' },
       '>',
       {},
@@ -75,9 +68,51 @@ describe('doqryPicker', () => {
     expect(doqryPicker({ c: ['def', 'abc'] })).toEqual([{ c: ['abc', 'def'] }]);
   });
   it('sorts namespaced classes', () => {
-    expect(doqryPicker({ c: [['def', nsA], ['abc', nsB]] })).toEqual([{ c: [['def', nsA], ['abc', nsB]] }]);
-    expect(doqryPicker({ c: [['def', nsB], ['abc', nsA]] })).toEqual([{ c: [['abc', nsA], ['def', nsB]] }]);
-    expect(doqryPicker({ c: [['def', nsA], ['abc', nsA]] })).toEqual([{ c: [['abc', nsA], ['def', nsA]] }]);
+    expect(
+      doqryPicker({
+        c: [
+          ['def', nsA],
+          ['abc', nsB],
+        ],
+      }),
+    ).toEqual([
+      {
+        c: [
+          ['def', nsA],
+          ['abc', nsB],
+        ],
+      },
+    ]);
+    expect(
+      doqryPicker({
+        c: [
+          ['def', nsB],
+          ['abc', nsA],
+        ],
+      }),
+    ).toEqual([
+      {
+        c: [
+          ['abc', nsA],
+          ['def', nsB],
+        ],
+      },
+    ]);
+    expect(
+      doqryPicker({
+        c: [
+          ['def', nsA],
+          ['abc', nsA],
+        ],
+      }),
+    ).toEqual([
+      {
+        c: [
+          ['abc', nsA],
+          ['def', nsA],
+        ],
+      },
+    ]);
   });
   it('sorts namespaced and local classes', () => {
     expect(doqryPicker({ c: ['def', ['abc', nsB]] })).toEqual([{ c: ['def', ['abc', nsB]] }]);
@@ -93,85 +128,76 @@ describe('doqryPicker', () => {
     expect(doqryPicker({ u: ['attr'] })).toEqual([{ u: [['attr']] }]);
   });
   it('normalizes attribute selector with value', () => {
-    expect(doqryPicker({ u: ['attr', '^=', 'prefix', 'i'] })).toEqual([{ u: [['attr', '^=', 'prefix', 'i']] }]);
+    expect(doqryPicker({ u: ['attr', '^=', 'prefix', 'i'] })).toEqual([
+      { u: [['attr', '^=', 'prefix', 'i']] },
+    ]);
   });
   it('normalizes pseudo-class', () => {
     expect(doqryPicker({ u: [':', 'host'] })).toEqual([{ u: [[':', 'host']] }]);
   });
   it('normalizes pseudo-element', () => {
-    expect(doqryPicker({ e: 'a', u: ['::', 'before'] })).toEqual([{ e: 'a', u: [['::', 'before']] }]);
+    expect(doqryPicker({ e: 'a', u: ['::', 'before'] })).toEqual([
+      { e: 'a', u: [['::', 'before']] },
+    ]);
   });
   it('normalizes pseudo-class with raw parameter', () => {
-    expect(doqryPicker({
-      e: 'li', u: [':', 'nth-child', '2'],
-    })).toEqual([
+    expect(
+      doqryPicker({
+        e: 'li',
+        u: [':', 'nth-child', '2'],
+      }),
+    ).toEqual([
       {
         e: 'li',
-        u: [
-          [':', 'nth-child', [{ s: '2' }]],
-        ],
+        u: [[':', 'nth-child', [{ s: '2' }]]],
       },
     ]);
   });
   it('normalizes pseudo-class with simple selector as parameter', () => {
-    expect(doqryPicker({
-      u: [':', 'is', { e: 'li', c: 'selected' }],
-    })).toEqual([
+    expect(
+      doqryPicker({
+        u: [':', 'is', { e: 'li', c: 'selected' }],
+      }),
+    ).toEqual([
       {
-        u: [
-          [':', 'is', [{ e: 'li', c: ['selected'] }]],
-        ],
+        u: [[':', 'is', [{ e: 'li', c: ['selected'] }]]],
       },
     ]);
   });
   it('normalizes pseudo-class with compound selector as parameter', () => {
-    expect(doqryPicker({
-      u: [':', 'is', { e: 'ul' }, '>', { e: 'li', c: 'selected' }],
-    })).toEqual([
+    expect(
+      doqryPicker({
+        u: [':', 'is', { e: 'ul' }, '>', { e: 'li', c: 'selected' }],
+      }),
+    ).toEqual([
       {
-        u: [
-          [':', 'is', [{ e: 'ul' }, '>', { e: 'li', c: ['selected'] }]],
-        ],
+        u: [[':', 'is', [{ e: 'ul' }, '>', { e: 'li', c: ['selected'] }]]],
       },
     ]);
   });
   it('normalizes pseudo-class with multiple parameters', () => {
-    expect(doqryPicker({
-      u: [
-        ':',
-        'is',
-        [{ e: 'a', u: [':', 'active'] }],
-        [{ e: 'a', u: [':', 'focus'] }],
-      ],
-    })).toEqual([
+    expect(
+      doqryPicker({
+        u: [':', 'is', [{ e: 'a', u: [':', 'active'] }], [{ e: 'a', u: [':', 'focus'] }]],
+      }),
+    ).toEqual([
       {
-        u: [
-          [
-            ':',
-            'is',
-            [{ e: 'a', u: [[':', 'active']] }],
-            [{ e: 'a', u: [[':', 'focus']] }],
-          ],
-        ],
+        u: [[':', 'is', [{ e: 'a', u: [[':', 'active']] }], [{ e: 'a', u: [[':', 'focus']] }]]],
       },
     ]);
   });
   it('normalizes multiple sub-selectors', () => {
-    expect(doqryPicker({
-      e: 'a',
-      u: [
-        ['href'],
-        [':', 'nth-child', '2'],
-        ['::', 'before'],
-      ],
-    })).toEqual([{
-      e: 'a',
-      u: [
-        ['href'],
-        [':', 'nth-child', [{ s: '2' }]],
-        ['::', 'before'],
-      ],
-    }]);
+    expect(
+      doqryPicker({
+        e: 'a',
+        u: [['href'], [':', 'nth-child', '2'], ['::', 'before']],
+      }),
+    ).toEqual([
+      {
+        e: 'a',
+        u: [['href'], [':', 'nth-child', [{ s: '2' }]], ['::', 'before']],
+      },
+    ]);
   });
   it('removes empty sub-selectors array', () => {
     expect(doqryPicker({ e: 'a', u: [] })).toEqual([{ e: 'a' }]);
@@ -209,25 +235,18 @@ describe('doqryPicker', () => {
     expect(doqryPicker({ $: ['def', 'abc'] })).toEqual([{ $: ['abc', 'def'] }]);
   });
   it('exposes qualifiers', () => {
-    expect(doqryPicker({ $: ['foo:def', 'foo:z', 'bar:abc=vvv:xxx'] })).toEqual([{
-      $: [
-        'bar',
-        'bar:abc',
-        'bar:abc=vvv:xxx',
-        'foo',
-        'foo:def',
-        'foo:z',
-      ],
-    }]);
+    expect(doqryPicker({ $: ['foo:def', 'foo:z', 'bar:abc=vvv:xxx'] })).toEqual([
+      {
+        $: ['bar', 'bar:abc', 'bar:abc=vvv:xxx', 'foo', 'foo:def', 'foo:z'],
+      },
+    ]);
   });
   it('returns the picker itself', () => {
-
     const picker = doqryPicker(doqryPicker(['abc', '>', { e: 'def' }]));
 
     expect(doqryPicker(picker)).toBe(picker);
   });
   it('returns the simple picker itself', () => {
-
     const picker = doqryPicker('span');
 
     expect(doqryPicker(picker)).toBe(picker);
@@ -236,13 +255,14 @@ describe('doqryPicker', () => {
 
 describe('doqryPickerPart', () => {
   it('normalizes selector part', () => {
-    expect(doqryPickerPart({
-      e: 'li', u: [':', 'nth-child', '2'],
-    })).toEqual({
+    expect(
+      doqryPickerPart({
+        e: 'li',
+        u: [':', 'nth-child', '2'],
+      }),
+    ).toEqual({
       e: 'li',
-      u: [
-        [':', 'nth-child', [{ s: '2' }]],
-      ],
+      u: [[':', 'nth-child', [{ s: '2' }]]],
     });
   });
 });

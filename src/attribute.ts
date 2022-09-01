@@ -8,11 +8,10 @@
  *   `[attribute^="value" i]`;
  */
 export type DoqryAttribute =
-    | readonly [string]
-    | readonly [string, DoqryAttribute.Operator, string, DoqryAttribute.Flag?];
+  | readonly [string]
+  | readonly [string, DoqryAttribute.Operator, string, DoqryAttribute.Flag?];
 
 export namespace DoqryAttribute {
-
   /**
    * CSS attribute selector operator.
    */
@@ -22,5 +21,4 @@ export namespace DoqryAttribute {
    * CSS attribute selector flag.
    */
   export type Flag = 'i';
-
 }

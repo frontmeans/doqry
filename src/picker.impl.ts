@@ -9,7 +9,7 @@ import { DoqrySelector } from './selector';
 import { DoqrySubPicker } from './sub-picker';
 import { DoqrySubSelector } from './sub-selector';
 
-const DoqryPicker__symbol = (/*#__PURE__*/ Symbol('DoqryPicker'));
+const DoqryPicker__symbol = /*#__PURE__*/ Symbol('DoqryPicker');
 
 type DoqrySelector$Normalizable = DoqrySelector & {
   readonly [DoqryPicker__symbol]?: DoqryPicker | undefined;
@@ -32,7 +32,6 @@ export function DoqrySelector$normalize(selector: DoqryPureSelector): DoqryPureP
 export function DoqrySelector$normalize(selector: DoqrySelector): DoqryPicker;
 
 export function DoqrySelector$normalize(selector: DoqrySelector$Normalizable): DoqryPicker {
-
   const normalized = selector[DoqryPicker__symbol];
 
   if (normalized) {
@@ -47,7 +46,6 @@ export function DoqrySelector$normalize(selector: DoqrySelector$Normalizable): D
   let combinator: DoqryCombinator | undefined;
 
   for (const item of selector) {
-
     const prevCombinator = combinator;
 
     if (combinator) {
@@ -89,7 +87,6 @@ function DoqrySelector$normalizeKey(key: DoqrySelector.Part | string): DoqryPick
 }
 
 export function DoqrySelector$Part$normalize(part: DoqrySelector.Part): DoqryPicker.Part {
-
   const ns = part.ns || undefined;
   const i = part.i || undefined;
   const c = DoqryClass$normalizeAll(part.c);
@@ -97,7 +94,9 @@ export function DoqrySelector$Part$normalize(part: DoqrySelector.Part): DoqryPic
 
   return {
     ns,
-    e: (part.e !== '*' || !ns && !i && !c && u && DoqrySubSelector$isPseudo(u[0])) && part.e || undefined,
+    e:
+      ((part.e !== '*' || (!ns && !i && !c && u && DoqrySubSelector$isPseudo(u[0]))) && part.e)
+      || undefined,
     i,
     c,
     u,
@@ -107,7 +106,7 @@ export function DoqrySelector$Part$normalize(part: DoqrySelector.Part): DoqryPic
 }
 
 function DoqryClass$normalizeAll(
-    classes: QualifiedName | readonly QualifiedName[] | undefined,
+  classes: QualifiedName | readonly QualifiedName[] | undefined,
 ): readonly [QualifiedName, ...QualifiedName[]] | undefined {
   if (!classes) {
     return;
@@ -118,27 +117,28 @@ function DoqryClass$normalizeAll(
 
   const result = classes.filter(c => !!c);
 
-  return result.length ? result.sort(compareNames) as [QualifiedName, ...QualifiedName[]] : undefined;
+  return result.length
+    ? (result.sort(compareNames) as [QualifiedName, ...QualifiedName[]])
+    : undefined;
 }
 
 function DoqrySubSelector$normalizeAll(
-    subs: DoqrySubSelector | readonly DoqrySubSelector[] | undefined,
+  subs: DoqrySubSelector | readonly DoqrySubSelector[] | undefined,
 ): readonly [DoqrySubPicker, ...DoqrySubPicker[]] | undefined {
   if (!subs) {
     return;
   }
   if (/*#__INLINE__*/ isDoqrySubSelectorsArray(subs)) {
-
     const result = subs.map(DoqrySubSelector$normalize);
 
-    return result.length ? result as [DoqrySubPicker, ...DoqrySubPicker[]] : undefined;
+    return result.length ? (result as [DoqrySubPicker, ...DoqrySubPicker[]]) : undefined;
   }
 
   return [DoqrySubSelector$normalize(subs)];
 }
 
 function isDoqrySubSelectorsArray(
-    subs: DoqrySubSelector | readonly DoqrySubSelector[],
+  subs: DoqrySubSelector | readonly DoqrySubSelector[],
 ): subs is readonly DoqrySubSelector[] {
   return typeof subs[0] !== 'string';
 }
@@ -169,13 +169,13 @@ export function DoqrySubSelector$isPseudo(sub: DoqrySubSelector): sub is DoqrySu
 }
 
 function isDoqrySubSelectorParametersArray(
-    param: DoqrySubSelector.Parameter | readonly DoqrySubSelector.Parameter[],
+  param: DoqrySubSelector.Parameter | readonly DoqrySubSelector.Parameter[],
 ): param is readonly DoqrySubSelector.Parameter[] {
   return isArrayOfElements(param[0]);
 }
 
 function DoqryQualifier$normalizeAll(
-    qualifiers: string | readonly string[] | undefined,
+  qualifiers: string | readonly string[] | undefined,
 ): readonly [string, ...string[]] | undefined {
   if (!qualifiers) {
     return;
@@ -187,10 +187,10 @@ function DoqryQualifier$normalizeAll(
     qualifiers = [...new Set(flatMapIt(qualifiers, DoqryQualifier$expose))].sort();
   }
 
-  return qualifiers.length ? qualifiers as [string, ...string[]] : undefined;
+  return qualifiers.length ? (qualifiers as [string, ...string[]]) : undefined;
 }
 
-const DoqryQualifier$none$exposed: ReadonlySet<string> = (/*#__PURE__*/ new Set());
+const DoqryQualifier$none$exposed: ReadonlySet<string> = /*#__PURE__*/ new Set();
 
 function DoqryQualifier$expose(qualifier: string): ReadonlySet<string> {
   if (!qualifier) {

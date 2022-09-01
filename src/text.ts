@@ -8,7 +8,6 @@ import { DoqryPicker$format } from './text.impl';
  * Structured CSS selector textual format.
  */
 export interface DoqryFormat {
-
   /**
    * Qualifier formatting function. When present, it is called for each qualifier to build its
    * textual representation. When unspecified, the qualifiers won't be attached to resulting CSS selector text.
@@ -25,7 +24,6 @@ export interface DoqryFormat {
    * New instance will be created if not specified.
    */
   nsAlias?: NamespaceAliaser | undefined;
-
 }
 
 /**
@@ -36,6 +34,9 @@ export interface DoqryFormat {
  *
  * @returns CSS selector string.
  */
-export function doqryText(selector: DoqrySelector | DoqryPureSelector, format?: DoqryFormat): string {
+export function doqryText(
+  selector: DoqrySelector | DoqryPureSelector,
+  format?: DoqryFormat,
+): string {
   return DoqryPicker$format(doqryPicker(selector), format);
 }

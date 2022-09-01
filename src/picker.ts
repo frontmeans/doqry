@@ -15,7 +15,6 @@ import { DoqrySelector } from './selector';
 export type DoqryPicker = readonly (DoqryPicker.Part | DoqryCombinator)[];
 
 export namespace DoqryPicker {
-
   /**
    * Mutable {@link DoqryPicker CSS picker}.
    */
@@ -39,16 +38,13 @@ export namespace DoqryPicker {
    * - has qualifiers sorted.
    */
   export interface Part extends DoqryPurePicker.Part {
-
     /**
      * Array of qualifiers.
      *
      * Either absent, or non-empty and containing non-empty qualifiers sorted alphabetically.
      */
     readonly $?: readonly [string, ...string[]] | undefined;
-
   }
-
 }
 
 /**

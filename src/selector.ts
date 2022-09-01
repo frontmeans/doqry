@@ -13,12 +13,11 @@ import { DoqryPureSelector } from './pure-selector';
  * A structured CSS selector can be {@link doqryPicker normalized} to transform it to {@link DoqryPicker CSS picker}.
  */
 export type DoqrySelector =
-    | string
-    | DoqrySelector.Part
-    | readonly (string | DoqrySelector.Part | DoqryCombinator)[];
+  | string
+  | DoqrySelector.Part
+  | readonly (string | DoqrySelector.Part | DoqryCombinator)[];
 
 export namespace DoqrySelector {
-
   /**
    * A part of {@link DoqrySelector structured CSS selector}}.
    *
@@ -29,7 +28,6 @@ export namespace DoqrySelector {
    * All of the properties are optional.
    */
   export interface Part extends DoqryPureSelector.Part {
-
     /**
      * Qualifier or qualifiers.
      *
@@ -40,7 +38,5 @@ export namespace DoqrySelector {
      * Example: `foo:bar:baz=some value` matches `foo:bar:baz=some value`, `foo:bar:baz`, `foo:bar`, and `foo`.
      */
     readonly $?: string | readonly string[] | undefined;
-
   }
-
 }

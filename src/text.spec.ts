@@ -3,7 +3,6 @@ import { beforeEach, describe, expect, it } from '@jest/globals';
 import { doqryText } from './text';
 
 describe('doqryText', () => {
-
   let ns: NamespaceDef;
 
   beforeEach(() => {
@@ -68,14 +67,11 @@ describe('doqryText', () => {
     expect(doqryText({ e: '*', u: ['::', 'visited'] })).toBe('*::visited');
   });
   it('formats pseudo-class with parameters', () => {
-    expect(doqryText({
-      u: [
-        ':',
-        'is',
-        [{ c: 'custom' }],
-        [{ c: 'other' }],
-      ],
-    })).toBe(':is(.custom,.other)');
+    expect(
+      doqryText({
+        u: [':', 'is', [{ c: 'custom' }], [{ c: 'other' }]],
+      }),
+    ).toBe(':is(.custom,.other)');
   });
   it('formats sub-selectors', () => {
     expect(doqryText({ u: [['attr'], ['::', 'after']] })).toBe('[attr]::after');
@@ -84,15 +80,28 @@ describe('doqryText', () => {
     expect(doqryText({ e: 'a', s: ':hover' })).toBe('a:hover');
   });
   it('formats combinations', () => {
-    expect(doqryText([{ e: 'ul' }, '>', { e: 'a' }, '+', { e: 'span', s: ':after' }])).toBe('ul>a+span:after');
+    expect(doqryText([{ e: 'ul' }, '>', { e: 'a' }, '+', { e: 'span', s: ':after' }])).toBe(
+      'ul>a+span:after',
+    );
   });
   it('separates parts', () => {
-    expect(doqryText([{ e: 'ul' }, { e: 'a' }, { e: 'span', s: ':after' }])).toBe('ul a span:after');
+    expect(doqryText([{ e: 'ul' }, { e: 'a' }, { e: 'span', s: ':after' }])).toBe(
+      'ul a span:after',
+    );
   });
   it('ignores qualifiers', () => {
     expect(doqryText({ e: 'span', $: 'foo' })).toBe('span');
   });
   it('formats qualifiers by second argument', () => {
-    expect(doqryText({ e: 'span', $: ['foo', 'bar'] }, { qualify(q) { return `@${q}`; } })).toBe('span@bar@foo');
+    expect(
+      doqryText(
+        { e: 'span', $: ['foo', 'bar'] },
+        {
+          qualify(q) {
+            return `@${q}`;
+          },
+        },
+      ),
+    ).toBe('span@bar@foo');
   });
 });

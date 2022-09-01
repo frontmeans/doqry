@@ -6,12 +6,9 @@ import { DoqrySubSelector } from './sub-selector';
 /**
  * A sub-picker of {@link DoqryPicker CSS picker}.
  */
-export type DoqrySubPicker =
-    | DoqryAttribute
-    | DoqrySubPicker.Pseudo;
+export type DoqrySubPicker = DoqryAttribute | DoqrySubPicker.Pseudo;
 
 export namespace DoqrySubPicker {
-
   /**
    * Structured CSS pseudo-class or pseudo-element picker.
    *
@@ -27,5 +24,4 @@ export namespace DoqrySubPicker {
    * Raw string parameter is represented by sub-selector part containing only `s` property.
    */
   export type Parameter = readonly (DoqryPurePicker.Part | DoqryCombinator)[];
-
 }
