@@ -19,7 +19,7 @@ export type DoqrySelector =
 
 export namespace DoqrySelector {
   /**
-   * A part of {@link DoqrySelector structured CSS selector}}.
+   * A part of {@link DoqrySelector structured CSS selector}.
    *
    * It may represent a selector like `element-name#id.class1.classN[attr1][attr2]:pseudo-class::pseudo-element` with
    * any of sub-parts omitted. Attributes, pseudo-classes, and pseudo-elements are represented as sub-selectors.

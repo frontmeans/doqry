@@ -6,7 +6,7 @@
 export type DoqryCombinator = '>' | '+' | '~';
 
 /**
- * Checks whether the given value is a {@DoqryCombinator CSS selector combinator}.
+ * Checks whether the given value is a {@link DoqryCombinator CSS selector combinator}.
  *
  * @param value - A value to check.
  *

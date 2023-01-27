@@ -1,6 +1,5 @@
 {
   "entryPoints": ["src/index.ts"],
-  "name": "Namespace Aliaser",
-  "out": "./target/typedoc",
-  "tsconfig": "tsconfig.main.json"
+  "name": "Document Query Notation",
+  "out": "./target/typedoc"
 }
