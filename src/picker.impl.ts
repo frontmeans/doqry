@@ -1,6 +1,5 @@
 import { compareNames, isQualifiedName, QualifiedName } from '@frontmeans/namespace-aliaser';
 import { isArrayOfElements } from '@proc7ts/primitives';
-import { flatMapIt } from '@proc7ts/push-iterator';
 import { DoqryCombinator, isDoqryCombinator } from './combinator';
 import { DoqryPicker } from './picker';
 import { DoqryPurePicker } from './pure-picker';
@@ -184,17 +183,15 @@ function DoqryQualifier$normalizeAll(
   if (!isArrayOfElements(qualifiers)) {
     qualifiers = [...DoqryQualifier$expose(qualifiers)];
   } else {
-    qualifiers = [...new Set(flatMapIt(qualifiers, DoqryQualifier$expose))].sort();
+    qualifiers = [...new Set(qualifiers.flatMap(DoqryQualifier$expose))].sort();
   }
 
   return qualifiers.length ? (qualifiers as [string, ...string[]]) : undefined;
 }
 
-const DoqryQualifier$none$exposed: ReadonlySet<string> = /*#__PURE__*/ new Set();
-
-function DoqryQualifier$expose(qualifier: string): ReadonlySet<string> {
+function DoqryQualifier$expose(qualifier: string): string[] {
   if (!qualifier) {
-    return DoqryQualifier$none$exposed;
+    return [];
   }
 
   const eqIdx = qualifier.indexOf('=');
@@ -214,5 +211,5 @@ function DoqryQualifier$expose(qualifier: string): ReadonlySet<string> {
     exposed.add(qualifier);
   }
 
-  return exposed;
+  return [...exposed];
 }
