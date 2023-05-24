@@ -21,6 +21,7 @@
     "types": "./dist/doqry.d.ts",
     "default": "./dist/doqry.js"
   },
+  "sideEffects": false,
   "dependencies": {
     "@frontmeans/httongue": "^2.4.0",
     "@frontmeans/namespace-aliaser": "^2.6.2",
